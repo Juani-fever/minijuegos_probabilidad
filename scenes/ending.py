@@ -26,7 +26,9 @@ class EndingScene(Scene):
 
     def on_enter(self):
         # Texto según estadísticas
-        if self.state.stats.get("bondad", 0) > 0:
+        if self.state.flags.get("electricidad_restaurada", False):
+            self.text = "La luz volvió y los fantasmas huyeron. El camino final se siente más seguro."
+        elif self.state.stats.get("bondad", 0) > 0:
             self.text = self.script["ending"]["kind"]
         else:
             self.text = self.script["ending"]["neutral"]

@@ -5,6 +5,7 @@ from engine.scene_manager import Scene
 from engine.narrator import Narrator
 from scenes.ending import EndingScene
 from game.actor import Character, NPC
+from scenes.electric_game import ElectricGameScene
 
 class ForestScene(Scene):
     def __init__(self, manager, state, audio):
@@ -76,7 +77,13 @@ class ForestScene(Scene):
                 self.narrator.say("Narrador: El guía susurra un atajo entre los árboles.")
 
             elif self.exit_zone.collidepoint(event.pos):
-                self.manager.replace(EndingScene(self.manager, self.state, self.audio))
+                self.manager.replace(
+                    ElectricGameScene(
+                        self.manager,
+                        self.state,
+                        self.audio
+                    )
+                )
 
     def update(self, dt):
         if self.input_cooldown > 0:
