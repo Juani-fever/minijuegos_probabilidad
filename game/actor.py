@@ -10,7 +10,7 @@ class Character:
         try:
             img = pygame.image.load("assets/images/hero_idle.png").convert_alpha()
             # escalar a 64x64 aprox para encajar
-            self.sprite = pygame.transform.smoothscale(img, (64, 64))
+            self.sprite = pygame.transform.smoothscale(img, (164, 164))
         except Exception:
             self.sprite = None
 
